@@ -40,11 +40,16 @@ config :phoenix,
 
 # Authentication
 github_api_scopes = Enum.join(~w(read:user user:email read:org), ",")
+gitlab_api_scopes = Enum.join(~w(read_user read_repository), " ")
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, [default_scope: github_api_scopes]}
+    github: {Ueberauth.Strategy.Github, [default_scope: github_api_scopes]},
+    gitlab: {Ueberauth.Strategy.Gitlab, [default_scope: gitlab_api_scopes]}
   ]
+
+# in case you run into trouble with oauth
+config :oauth2, debug: true
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

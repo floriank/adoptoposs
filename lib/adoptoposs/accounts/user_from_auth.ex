@@ -26,11 +26,13 @@ defmodule Adoptoposs.Accounts.UserFromAuth do
   defp username_from_auth(%Auth{}), do: ""
 
   defp avatar_url_from_auth(%Auth{info: %{urls: %{avatar_url: url}}}), do: url
+  defp avatar_url_from_auth(%Auth{info: %{image: url}}), do: url
   defp avatar_url_from_auth(%Auth{}), do: ""
 
   defp email_from_auth(%Auth{info: %{email: email}}), do: email
   defp email_from_auth(%Auth{}), do: ""
 
   defp profile_url_from_auth(%Auth{info: %{urls: %{html_url: url}}}), do: url
+  defp profile_url_from_auth(%Auth{info: %{urls: %{web_url: url}}}), do: url
   defp profile_url_from_auth(%Auth{}), do: ""
 end

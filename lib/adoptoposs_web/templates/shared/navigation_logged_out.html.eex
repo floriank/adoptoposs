@@ -10,5 +10,9 @@
     <%= live_redirect "Log in with GitHub",
       to: Routes.auth_path(@conn, :request, "github"),
       class: "button-link subtle" %>
+
+    <%= live_redirect "Log in with Gitlab",
+      to: Routes.auth_path(@conn, :request, "gitlab"),
+      class: "button-link subtle" %>
   </div>
 </div>
