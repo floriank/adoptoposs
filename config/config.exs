@@ -49,7 +49,7 @@ config :ueberauth, Ueberauth,
   ]
 
 # in case you run into trouble with oauth
-config :oauth2, debug: true
+# config :oauth2, debug: true
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

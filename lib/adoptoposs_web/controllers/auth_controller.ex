@@ -11,8 +11,6 @@ defmodule AdoptopossWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    auth |> IO.inspect()
-
     case Accounts.upsert_user(auth) do
       {:ok, user} ->
         conn
